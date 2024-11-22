@@ -18,4 +18,16 @@ public class Veicolo {
         this.codice = codiceProgressivo;
         codiceProgressivo++;
     }
+
+    public String getTarga() {
+        return this.targa;
+    }
+
+    public int getPosti() {
+        return this.nPosti;
+    }
+
+    public String toString() {
+        return targa;
+    }
 }
