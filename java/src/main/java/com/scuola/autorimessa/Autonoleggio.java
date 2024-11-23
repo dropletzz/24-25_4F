@@ -54,10 +54,9 @@ public class Autonoleggio {
         a.aggiungi(new Veicolo("KSKSKS", "Audi", "A4", 5));
         a.aggiungi(new Veicolo("AABBCC", "Lamborghini", "Aventador", 4));
 
-        System.out.println(a.toString());
+        System.out.println(a);
         a.rimuovi("FW343WE");
-        System.out.println(a.toString());
-
+        System.out.println(a);
         a.rimuovi("xxxyyy");
 
         System.out.println("Veicoli con 5 posti: " + a.cercaConPosti(5));
