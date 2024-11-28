@@ -1,7 +1,6 @@
-package com.scuola.util;
+package com.scuola.esercizi;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
@@ -19,23 +18,14 @@ public final class Read {
         new InputStreamReader(System.in)
     );
 
-    private static final String STDIN_READ_ERROR = "ERROR: could not read from stdin";
-
     /*
      * 0) stampa in output il messaggio
      * 1) leggi una stringa dall'input
      * 2) restituisci la stringa appena letta
      */
     public static String string(String message) {
-        System.out.print(message);
-        String input = null;
-        try {
-            input = in.readLine();
-        } catch (IOException e) {
-            System.out.println(STDIN_READ_ERROR);
-            System.exit(1);
-        }
-        return input;
+        // TODO
+        return "";
     }
 
     /*
@@ -46,16 +36,8 @@ public final class Read {
      * 4) in caso contrario, stampa un messaggio di errore e ritorna al punto 0
      */
     public static int integer(String message) {
-        String s = Read.string(message);
-        int input = 0;
-        // TODO ciclo while
-        try {
-            // provo a convertire l'input in un intero
-            input = Integer.parseInt(s);
-        } catch (NumberFormatException e) {
-            // se la conversione fallisce vado qui
-        }
-        return input;
+        // TODO
+        return 0;
     }
 
     /* Leggi in input un numero intero che deve essere >= min */
