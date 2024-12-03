@@ -3,7 +3,7 @@ package com.scuola.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.List;
 
 
 /*
@@ -18,7 +18,13 @@ public final class Read {
             new InputStreamReader(System.in)
     );
 
-    private static final String STDIN_READ_ERROR = "ERROR: could not read from stdin";
+    private static final String STDIN_ERROR = "ERROR: could not read from stdin";
+    private static final String INTPARSE_ERROR = "! Input can't be parsed to integer";
+    private static final String LESSTHAN_ERROR = "! Should be less than %s";
+    private static final String MORETHAN_ERROR = "! Should be more than %s";
+    private static final String BETWEEN_ERROR = "! Should be between %s and %s";
+    private static final String YESORNO_ERROR = "! Write '%s' or '%s'";
+    private static final String SELECT_OPTION = "[%s] %s";
 
     /*
      * 0) stampa in output il messaggio
@@ -31,7 +37,7 @@ public final class Read {
         try {
             input = in.readLine();
         } catch (IOException e) {
-            System.out.println(STDIN_READ_ERROR);
+            System.out.println(STDIN_ERROR);
             System.exit(1);
         }
         return input;
@@ -55,6 +61,7 @@ public final class Read {
                 input = Integer.parseInt(s);
                 error = false;
             } catch (NumberFormatException e) {
+                System.out.println(INTPARSE_ERROR);
                 error = true;
             }
         } while (error);
@@ -79,7 +86,9 @@ public final class Read {
                 // } else {
                 //     error = true;
                 // }
+                if (error) System.out.println(MORETHAN_ERROR.formatted(min));
             } catch (NumberFormatException e) {
+                System.out.println(INTPARSE_ERROR);
                 error = true;
             }
         } while (error);
@@ -96,7 +105,9 @@ public final class Read {
             try {
                 input = Integer.parseInt(s);
                 error = !(input <= max);
+                if (error) System.out.println(LESSTHAN_ERROR.formatted(max));
             } catch (NumberFormatException e) {
+                System.out.println(INTPARSE_ERROR);
                 error = true;
             }
         } while (error);
@@ -113,7 +124,9 @@ public final class Read {
             try {
                 input = Integer.parseInt(s);
                 error = !(input >= min && input <= max);
+                if (error) System.out.println(BETWEEN_ERROR.formatted(min, max));
             } catch (NumberFormatException e) {
+                System.out.println(INTPARSE_ERROR);
                 error = true;
             }
         } while (error);
@@ -128,11 +141,12 @@ public final class Read {
      * 3) se la stringa letta e' uguale al contenuto della variabile no, restituisci false
      * 4) in caso contrario, stampa un messaggio di errore e torna al punto 0
      */
+
     public static boolean yesOrNo(String message, String yes, String no) {
         boolean input = false;
-        boolean error = false;
+        boolean error;
         do {
-            String s = Read.string(message);
+            String s = Read.string(message + "(%s/%s)".formatted(yes, no));
             if (s.equals(yes)) {
                 input = true;
                 error = false;
@@ -141,6 +155,7 @@ public final class Read {
                 error = false;
             } else {
                 error = true;
+                System.out.println(YESORNO_ERROR.formatted(yes, no));
             }
         } while (error);
 
@@ -149,8 +164,11 @@ public final class Read {
 
     // alternativa piu' breve
     // public static boolean yesOrNo(String message, String yes, String no) {
-    //     String s;
+    //     String s = null;
     //     do {
+    //         if (s != null) {
+    //             System.out.println(String.format(YESORNO_ERROR, yes, no));
+    //         }
     //         s = Read.string(message);
     //     } while (!(s.equals(yes) || s.equals(no)));
 
@@ -161,15 +179,15 @@ public final class Read {
      * Permette all'utente di selezionare una delle opzioni (passate come ArrayList)
      * e restituisce l'indice corrispondente all'opzione selezionata
      */
-    public static int select(String message, ArrayList<String> options) {
+    public static int select(String message, List options) {
         for (int i = 0; i < options.size(); i++) {
             System.out.println(
-                "[" + i + "] " + options.get(i)
+                String.format(SELECT_OPTION, i, options.get(i))
             );
         }
 
         int input = Read.integerMinMax(
-            message, 0, options.size()- 1
+            message, 0, options.size() - 1
         );
         
         return input;

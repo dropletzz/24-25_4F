@@ -1,29 +1,52 @@
 package com.scuola.util;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ReadTest {
 
+    private static final List<String> options = Arrays.asList(new String[]{
+        "ESCI",
+        "FAI QUESTO",
+        "FAI QUELLO"
+    });
+
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
+        // string
+        String s = Read.string("dammi una stringa: ");
 
-        // array di opzioni
-        String[] optionsArray = { "ESCI", "FAI QUESTO", "FAI QUELLO" };
+        // integer
+        int x = Read.integer("dammi un numero intero: ");
 
-        // converto array in un ArrayList
-        ArrayList<String> options = new ArrayList<>(
-            Arrays.asList(optionsArray)
-        );
+        // integerMin
+        int y = Read.integerMin("dammi un numero intero positivo: ", 0);
 
-        int selectedOption = Read.select("Scegli un opzione: ", options);
+        // integerBetween
+        int z = Read.integerMinMax("la uno, la due o la tre? ", 1, 3);
 
-        switch (selectedOption) {
-            case 0: // ESCI
-            break;
-            case 1: // FAI QUESTO
-            break;
-            case 2: // FAI QUELLo
-            break;
+        // yesOrNo
+        String msg = "Ancora?";
+        while (Read.yesOrNo(msg, "ok", "basta")) {
+            msg += "?";
+        }
+
+        // select
+        boolean quit = false;
+        while (!quit) {
+            int selectedOption = Read.select("Scegli un opzione: ", options);
+            switch (selectedOption) {
+                case 0: // ESCI
+                    System.out.println("ciao");
+                    quit = true;
+                    break;
+                case 1: // FAI QUESTO
+                    System.out.println("questo");
+                    break;
+                case 2: // FAI QUELLO
+                    System.out.println("quello");
+                    break;
+            }
         }
     }
 }
