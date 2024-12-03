@@ -147,6 +147,16 @@ public final class Read {
         return input;
     }
 
+    // alternativa piu' breve
+    // public static boolean yesOrNo(String message, String yes, String no) {
+    //     String s;
+    //     do {
+    //         s = Read.string(message);
+    //     } while (!(s.equals(yes) || s.equals(no)));
+
+    //     return s.equals(yes);
+    // }
+
     /*
      * Permette all'utente di selezionare una delle opzioni (passate come ArrayList)
      * e restituisce l'indice corrispondente all'opzione selezionata
@@ -159,7 +169,7 @@ public final class Read {
         }
 
         int input = Read.integerMinMax(
-            message, 0, options.size()-1
+            message, 0, options.size()- 1
         );
         
         return input;
