@@ -12,11 +12,10 @@ import java.util.ArrayList;
  * l'input non e' correttamente formattato (ad esempio, se mi aspetto un numero e
  * l'utente inserisce lettere, continuero' a chiedere nuovi input fino a quando viene inserito un numero)
  */
-
 public final class Read {
 
     private static final BufferedReader in = new BufferedReader(
-        new InputStreamReader(System.in)
+            new InputStreamReader(System.in)
     );
 
     private static final String STDIN_READ_ERROR = "ERROR: could not read from stdin";
@@ -48,7 +47,7 @@ public final class Read {
     public static int integer(String message) {
         int input = 0;
         boolean error;
-        do { 
+        do {
             // leggo in input una stringa
             String s = Read.string(message);
             try {
@@ -65,20 +64,61 @@ public final class Read {
 
     /* Leggi in input un numero intero che deve essere >= min */
     public static int integerMin(String message, int min) {
-        // TODO
-        return 0;
+        int input = 0;
+        boolean error;
+        do {
+            // leggo in input una stringa
+            String s = Read.string(message);
+            try {
+                // provo a convertire l'input in un intero
+                input = Integer.parseInt(s);
+                error = !(input >= min);
+                // equivalente a questo:
+                // if (input >= min) {
+                //     error = false;
+                // } else {
+                //     error = true;
+                // }
+            } catch (NumberFormatException e) {
+                error = true;
+            }
+        } while (error);
+
+        return input;
     }
 
     /* Leggi in input un numero intero che deve essere <= max */
     public static int integerMax(String message, int max) {
-        // TODO
-        return 0;
+        int input = 0;
+        boolean error;
+        do {
+            String s = Read.string(message);
+            try {
+                input = Integer.parseInt(s);
+                error = !(input <= max);
+            } catch (NumberFormatException e) {
+                error = true;
+            }
+        } while (error);
+
+        return input;
     }
 
     /* Leggi in input un numero intero che deve essere compreso tra max e min (estremi inclusi) */
     public static int integerMinMax(String message, int min, int max) {
-        // TODO
-        return 0;
+        int input = 0;
+        boolean error;
+        do {
+            String s = Read.string(message);
+            try {
+                input = Integer.parseInt(s);
+                error = !(input >= min && input <= max);
+            } catch (NumberFormatException e) {
+                error = true;
+            }
+        } while (error);
+
+        return input;
     }
 
     /*
@@ -89,8 +129,22 @@ public final class Read {
      * 4) in caso contrario, stampa un messaggio di errore e torna al punto 0
      */
     public static boolean yesOrNo(String message, String yes, String no) {
-        // TODO
-        return false;
+        boolean input = false;
+        boolean error = false;
+        do {
+            String s = Read.string(message);
+            if (s.equals(yes)) {
+                input = true;
+                error = false;
+            } else if (s.equals(no)) {
+                input = false;
+                error = false;
+            } else {
+                error = true;
+            }
+        } while (error);
+
+        return input;
     }
 
     /*
@@ -98,18 +152,25 @@ public final class Read {
      * e restituisce l'indice corrispondente all'opzione selezionata
      */
     public static int select(String message, ArrayList<String> options) {
-        // TODO
-        return -1;
+        for (int i = 0; i < options.size(); i++) {
+            System.out.println(
+                "[" + i + "] " + options.get(i)
+            );
+        }
+
+        int input = Read.integerMinMax(
+            message, 0, options.size()-1
+        );
+        
+        return input;
     }
 
     /*
      * QUA FINISCONO GLI ESERCIZI INTERESSANTI:
      * il resto dei metodi sono utili ma la loro implementazione
      * e' molto simile ad altri gia' implementati e quindi non richiesta
-    */
-
-
-    /* Leggi in input una stringa di lunghezza >= minLength */
+     */
+ /* Leggi in input una stringa di lunghezza >= minLength */
     public static String stringMin(String message, int minLength) {
         // TODO
         return "";

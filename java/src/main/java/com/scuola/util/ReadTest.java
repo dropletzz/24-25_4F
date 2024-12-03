@@ -1,11 +1,29 @@
 package com.scuola.util;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ReadTest {
 
     public static void main(String[] args) {
-        int x = Read.integerMin("dammi una numero >= 4: ", 4);
-        int y = Read.integerMax("dammi una numero <= 12: ", 12);
-        int z = Read.integerMinMax("dammi una numero compreso tra 5 e 10: ", 5, 10);
-        
+
+        // array di opzioni
+        String[] optionsArray = { "ESCI", "FAI QUESTO", "FAI QUELLO" };
+
+        // converto array in un ArrayList
+        ArrayList<String> options = new ArrayList<>(
+            Arrays.asList(optionsArray)
+        );
+
+        int selectedOption = Read.select("Scegli un opzione: ", options);
+
+        switch (selectedOption) {
+            case 0: // ESCI
+            break;
+            case 1: // FAI QUESTO
+            break;
+            case 2: // FAI QUELLo
+            break;
+        }
     }
 }
