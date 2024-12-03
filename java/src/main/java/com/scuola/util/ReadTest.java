@@ -27,9 +27,7 @@ public class ReadTest {
 
         // yesOrNo
         String msg = "Ancora?";
-        while (Read.yesOrNo(msg, "ok", "basta")) {
-            msg += "?";
-        }
+        while (Read.yesOrNo(msg, "ok", "basta")) msg += "?";
 
         // select
         boolean quit = false;

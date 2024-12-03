@@ -186,9 +186,7 @@ public final class Read {
             );
         }
 
-        int input = Read.integerMinMax(
-            message, 0, options.size() - 1
-        );
+        int input = Read.integerMinMax(message, 0, options.size() - 1);
         
         return input;
     }
