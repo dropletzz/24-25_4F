@@ -179,7 +179,7 @@ public final class Read {
      * Permette all'utente di selezionare una delle opzioni (passate come ArrayList)
      * e restituisce l'indice corrispondente all'opzione selezionata
      */
-    public static int select(String message, List options) {
+    public static int select(String message, List<String> options) {
         for (int i = 0; i < options.size(); i++) {
             System.out.println(
                 String.format(SELECT_OPTION, i, options.get(i))
