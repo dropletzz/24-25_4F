@@ -46,15 +46,20 @@ public final class Read {
      * 4) in caso contrario, stampa un messaggio di errore e ritorna al punto 0
      */
     public static int integer(String message) {
-        String s = Read.string(message);
         int input = 0;
-        // TODO ciclo while
-        try {
-            // provo a convertire l'input in un intero
-            input = Integer.parseInt(s);
-        } catch (NumberFormatException e) {
-            // se la conversione fallisce vado qui
-        }
+        boolean error;
+        do { 
+            // leggo in input una stringa
+            String s = Read.string(message);
+            try {
+                // provo a convertire l'input in un intero
+                input = Integer.parseInt(s);
+                error = false;
+            } catch (NumberFormatException e) {
+                error = true;
+            }
+        } while (error);
+
         return input;
     }
 
