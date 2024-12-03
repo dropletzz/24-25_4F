@@ -26,14 +26,14 @@ public class ReadTest {
         int z = Read.integerMinMax("la uno, la due o la tre? ", 1, 3);
 
         // yesOrNo
-        String msg = "Ancora?";
+        String msg = "ancora?";
         while (Read.yesOrNo(msg, "ok", "basta")) msg += "?";
 
         // select
         boolean quit = false;
         while (!quit) {
-            int selectedOption = Read.select("Scegli un opzione: ", options);
-            switch (selectedOption) {
+            int menuOption = Read.select("scegli un'opzione: ", options);
+            switch (menuOption) {
                 case 0: // ESCI
                     System.out.println("ciao");
                     quit = true;

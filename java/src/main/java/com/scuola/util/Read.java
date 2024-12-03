@@ -181,9 +181,8 @@ public final class Read {
      */
     public static int select(String message, List<String> options) {
         for (int i = 0; i < options.size(); i++) {
-            System.out.println(
-                String.format(SELECT_OPTION, i, options.get(i))
-            );
+            String option = options.get(i);
+            System.out.println(SELECT_OPTION.formatted(i, option));
         }
 
         int input = Read.integerMinMax(message, 0, options.size() - 1);
@@ -196,7 +195,7 @@ public final class Read {
      * il resto dei metodi sono utili ma la loro implementazione
      * e' molto simile ad altri gia' implementati e quindi non richiesta
      */
- /* Leggi in input una stringa di lunghezza >= minLength */
+    /* Leggi in input una stringa di lunghezza >= minLength */
     public static String stringMin(String message, int minLength) {
         // TODO
         return "";
