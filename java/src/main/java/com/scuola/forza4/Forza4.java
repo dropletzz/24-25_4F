@@ -18,7 +18,7 @@ public class Forza4 {
     private static final int COLONNE = 7;
     private static final Cella[][] griglia = new Cella[RIGHE][COLONNE];
 
-    public static void main() {
+    public static void main(String[] args) {
         inizializzaGriglia(); // DA IMPLEMENTARE
 
         Giocatore turno = Giocatore.ROSSO;
