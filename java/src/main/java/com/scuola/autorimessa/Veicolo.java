@@ -9,6 +9,7 @@ public class Veicolo {
     private String modello;
     private int codice;
     private int nPosti;
+    private int sdijugfsuiyfaf;
 
     public Veicolo(String targa, String marca, String modello, int nPosti) {
         this.targa = targa;
