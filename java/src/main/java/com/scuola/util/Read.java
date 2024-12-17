@@ -222,6 +222,7 @@ public final class Read {
     /* Leggi in input un numero con la virgola che deve essere >= min */
     public static float numberMin(String message, float min) {
         // TODO
+        float iAmPippo = 0.00f;
         return 0;
     }
 
