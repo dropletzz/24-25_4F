@@ -221,8 +221,24 @@ public final class Read {
 
     /* Leggi in input un numero con la virgola che deve essere >= min */
     public static float numberMin(String message, float min) {
-        // TODO
-        return 0;
+        float input = 0;
+        boolean error;
+        do {
+
+            String s = Read.string(message);
+            try {
+
+                input = Float.parseFloat(s);
+                error = !(input <= min);
+
+                if (error) System.out.println(LESSTHAN_ERROR.formatted(min));
+            } catch (NumberFormatException e) {
+                System.out.println(INTPARSE_ERROR);
+                error = true;
+            }
+        } while (error);
+
+        return input;
     }
 
     /* Leggi in input un numero con la virgola che deve essere <= max */
