@@ -215,8 +215,22 @@ public final class Read {
 
     /* Leggi in input un numero con la virgola */
     public static float number(String message) {
-        // TODO
-        return 0;
+        float input = 0;
+        boolean error;
+        do {
+            // leggo in input una stringa
+            String s = Read.string(message);
+            try {
+                // provo a convertire l'input in un intero
+                input = Float.parseFloat(s);
+                error = false;
+            } catch (NumberFormatException e) {
+                System.out.println(INTPARSE_ERROR);
+                error = true;
+            }
+        } while (error);
+
+        return input;
     }
 
     /* Leggi in input un numero con la virgola che deve essere >= min */
