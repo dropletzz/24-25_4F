@@ -46,5 +46,9 @@ public class ReadTest {
                     break;
             }
         }
+        
+        float num = Read.numberMin("Inserisci un numero non intero minore di 1.5 : \n" , (float) 1.5);
+        
     }
 }
+
