@@ -209,7 +209,17 @@ public final class Read {
 
     /* Leggi in input una stringa di lunghezza compresa tra minLenght e  maxLength (estremi inclusi) */
     public static String stringMinMax(String message, int minLength, int maxLength) {
-        // TODO
+        boolean corretto = true;
+        do{
+            corretto = true;
+            String input = Read.string(message);
+            if(input.length() <= maxLength)
+                return input;
+            else{
+                System.out.println("La stringa deve essere più corta di "+maxLength+" caratteri");
+                corretto = false;
+            }
+        }while(!corretto);
         return "";
     }
 
