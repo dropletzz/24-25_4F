@@ -224,19 +224,14 @@ public final class Read {
         float input = 0;
         boolean error;
         do {
-            // leggo in input una stringa
+
             String s = Read.string(message);
             try {
-                // provo a convertire l'input in un intero
+
                 input = Float.parseFloat(s);
                 error = !(input <= min);
-                // equivalente a questo:
-                // if (input >= min) {
-                //     error = false;
-                // } else {
-                //     error = true;
-                // }
-                if (error) System.out.println(MORETHAN_ERROR.formatted(min));
+
+                if (error) System.out.println(LESSTHAN_ERROR.formatted(min));
             } catch (NumberFormatException e) {
                 System.out.println(INTPARSE_ERROR);
                 error = true;
