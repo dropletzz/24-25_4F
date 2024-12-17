@@ -1,6 +1,7 @@
 package com.scuola.esercizi;
 
 public class Stringhe {
+    // COMMENTO DI PROVA
     /*
      * Aggiungi un punto esclamativo in fondo ad s
      * 
