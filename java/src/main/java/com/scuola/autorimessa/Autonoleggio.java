@@ -3,7 +3,7 @@ package com.scuola.autorimessa;
 import java.util.ArrayList;
 
 public class Autonoleggio {
-
+    int n;
     private ArrayList<Veicolo> veicoli;
 
     public Autonoleggio() {
