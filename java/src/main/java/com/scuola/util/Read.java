@@ -197,6 +197,7 @@ public final class Read {
      */
     /* Leggi in input una stringa di lunghezza >= minLength */
     public static String stringMin(String message, int minLength) {
+       
         if(message.length() >= minLength)
         {
             System.out.println(message);
