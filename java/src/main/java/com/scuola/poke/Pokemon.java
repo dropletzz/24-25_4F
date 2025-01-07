@@ -11,13 +11,13 @@ public class Pokemon {
         Grass
     }
 
-    String name;
-    int health;
-    int maxHealth;
-    int attack;
-    int defense;
-    int speed;
-    Type type;
+    private String name;
+    private int health;
+    private int maxHealth;
+    private int attack;
+    private int defense;
+    private int speed;
+    private Type type;
     
     Move[] moves = new Move[4];
 
