@@ -70,15 +70,16 @@ public class Pokemon {
         moves[slot] = m;
     }
 
-    // Questo e' solo un esempio, potete cambiare
-    // l'implementazione di questo metodo come vi pare
-    // ad esempio tenendo conto delle debolezze che aumentano
-    // il danno (fuoco fa piu' danni ai pokemon erba, ecc...)
     public void takeDamage(int damage, Type type) {
-        if (damage < this.defense) damage = damage - 2;
+        // dimezza il danno se la mossa e' dello stesso tipo del pokemon
+        if (type.equals(this.type)) {
+            damage = damage / 2;
+        }
+        // riduci la salute del pokemon
         this.health = this.health - damage;
     }
 
+    // crea una copia del pokemon
     public Pokemon newCopy() {
         return new Pokemon(name, maxHealth, attack, defense, speed, type, moves);
     }

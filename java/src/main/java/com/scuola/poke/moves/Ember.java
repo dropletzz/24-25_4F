@@ -10,6 +10,6 @@ public class Ember extends Move {
 
     @Override
     public void apply(Pokemon attacker, Pokemon defender) {
-        defender.takeDamage(attacker.getAttack() + 2, super.getType());
+        defender.takeDamage(attacker.getAttack() + 2, this.getType());
     }
 }
