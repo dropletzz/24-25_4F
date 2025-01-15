@@ -197,20 +197,47 @@ public final class Read {
      */
     /* Leggi in input una stringa di lunghezza >= minLength */
     public static String stringMin(String message, int minLength) {
-        // TODO
-        return "";
+        boolean errore=false;
+        String s= null;
+        do{
+            errore = false;
+            s = Read.string(message);
+            if (s.length()<minLength){
+                System.out.println  ("ERRORE, REINSERIRE");
+                errore = true;
+            }
+        } while (errore);
+        return s;
     }
 
     /* Leggi in input una stringa di lunghezza <= maxLength */
     public static String stringMax(String message, int maxLength) {
-        // TODO
-        return "";
+        boolean errore=false;
+        String s= null;
+        do{
+            errore = false;
+            s = Read.string(message);
+            if (s.length()>maxLength){
+                System.out.println  ("ERRORE, REINSERIRE");
+                errore = true;
+            }
+        } while (errore);
+        return s;
     }
 
     /* Leggi in input una stringa di lunghezza compresa tra minLenght e  maxLength (estremi inclusi) */
     public static String stringMinMax(String message, int minLength, int maxLength) {
-        // TODO
-        return "";
+        boolean errore=false;
+        String s= null;
+        do{
+            errore = false;
+            s = Read.string(message);
+            if (s.length()>maxLength || s.length()<minLength){
+                System.out.println  ("ERRORE, REINSERIRE");
+                errore = true;
+            }
+        } while (errore);
+        return s;
     }
 
     /* Leggi in input un numero con la virgola */
