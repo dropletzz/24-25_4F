@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Autonoleggio {
 
+    private int zero;
     private ArrayList<Veicolo> veicoli;
 
     public Autonoleggio() {
