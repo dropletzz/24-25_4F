@@ -6,6 +6,6 @@ public class PokeMain {
         Pokemon p1 = PokeFactory.get("Charmander");
         Pokemon p2 = PokeFactory.get("Rattata");
 
-        // TODO far lottare i due pokemon
+        // TODO combattimento tra i pokemon
     }
 }

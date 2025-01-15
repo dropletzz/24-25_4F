@@ -26,7 +26,7 @@ public class PokeFactory {
 
     // Qui si creano tutti i Pokemon, definendo i loro parametri e le loro mosse
     public static ArrayList<Pokemon> initializePokemonList() {
-        ArrayList<Pokemon> l = new ArrayList<>();
+        ArrayList<Pokemon> list = new ArrayList<>();
 
         // Crea un pokemon
         Pokemon c = new Pokemon(
@@ -40,8 +40,10 @@ public class PokeFactory {
         // Assegna le mosse al pokemon
         c.learnMove(new Tackle(), 0);
         c.learnMove(new Ember(), 1);
+        c.learnMove(new Tackle(), 2);
+        c.learnMove(new Tackle(), 3);
         // Aggiungi il pokemon alla lista
-        l.add(c);
+        list.add(c);
 
         // Crea un pokemon
         Pokemon r = new Pokemon(
@@ -53,10 +55,13 @@ public class PokeFactory {
             Pokemon.Type.Normal
         );
         // Assegna le mosse al pokemon
-        c.learnMove(new Tackle(), 0);
+        r.learnMove(new Tackle(), 0);
+        r.learnMove(new Tackle(), 1);
+        r.learnMove(new Tackle(), 2);
+        r.learnMove(new Tackle(), 3);
         // Aggiungi il pokemon alla lista
-        l.add(r);
+        list.add(r);
 
-        return l;
+        return list;
     }
 }

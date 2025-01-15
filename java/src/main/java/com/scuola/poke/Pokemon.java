@@ -18,8 +18,7 @@ public class Pokemon {
     private int defense;
     private int speed;
     private Type type;
-    
-    Move[] moves = new Move[4];
+    private Move[] moves = new Move[4];
 
     public Pokemon(String name, int maxHealth, int attack, int defense, int speed, Type type) {
         this.name = name;
