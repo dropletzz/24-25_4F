@@ -249,7 +249,14 @@ public final class Read {
 
     /* Leggi in input un numero con la virgola che deve essere compreso tra max e min (estremi inclusi) */
     public static float numberMinMax(String message, float min, float max) {
-        // TODO
-        return 0;
+        boolean controllo=true;
+        float n=0;
+        while (controllo){
+            controllo = false;
+            String input = Read.string(message);
+            try { n=Float.parseFloat(input); if (n>max || n<min){controllo=true;}}
+            catch (Exception e) { System.out.println("ERRORE DI CONVERSIONE A FLOAT"); controllo=true; }
+        }
+        return n;
     }
 }
