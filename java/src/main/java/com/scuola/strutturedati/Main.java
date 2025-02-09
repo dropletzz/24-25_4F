@@ -3,23 +3,16 @@ package com.scuola.strutturedati;
 public class Main {
 
     public static void main(String[] args) {
-        Coda<Integer> l = new ListaConcatenata<>();
-        l.pushBack(37);
-        l.pushBack(21);
-        l.pushBack(88);
-        System.out.println(l.pop());
-        System.out.println(l.pop());
-        System.out.println(l.pop());
+        LinkedList<Integer> l = new LinkedList<>();
 
-        /*
-         * 
-        Pila p = new ListaConcatenata();
-        p.push(37);
-        p.push(21);
-        p.push(88);
-        System.out.println(p.pop());
-        System.out.println(p.pop());
-        System.out.println(p.pop());
-         */
+        l.pushBack(7); // [ 7 ]
+        l.pushBack(3); // [ 7, 3 ]
+        l.pushBack(1); // [ 7, 3, 1 ]
+        l.push(19);    // [ 19, 7, 3, 1 ]
+
+        System.out.println(l.pop());     // 19
+        System.out.println(l.popBack()); // 1
+        System.out.println(l.popBack()); // 3
+        System.out.println(l.pop());     // 7
     }
 }
