@@ -1,6 +1,6 @@
 package com.scuola.strutturedati;
 
-public class ListaConcatenata<T> implements CodaDoppia<T> {
+public class ListaConcatenata<T> extends Lista<T> implements CodaDoppia<T> {
 
     private class Node {
         T value = null;
@@ -13,8 +13,37 @@ public class ListaConcatenata<T> implements CodaDoppia<T> {
     }
 
     private Node head = null;
-    // TODO mantenere anche un riferimento alla coda
+    // IDEA: provare a tenere anche un riferimento all'ultimo elemento?
     // private Node tail = null;
+
+    @Override
+    public void add(int i, T v) {
+        // TODO 
+    }
+
+    @Override
+    public T del(int i) {
+        // TODO 
+        return null;
+    }
+
+    @Override
+    public T get(int i) {
+        // TODO 
+        return null;
+    }
+
+    @Override
+    public int size() {
+        // TODO
+        return 0;
+    }
+
+
+    /////////////////////////////////////
+    // FINE DEI METODI DA IMPLEMENTARE //
+    /////////////////////////////////////
+
 
     // aggiunge un elemento in testa
     @Override
@@ -25,6 +54,8 @@ public class ListaConcatenata<T> implements CodaDoppia<T> {
     // rimuove l'elemento in testa e lo restituisce
     @Override
     public T pop() {
+        if (this.head == null) return null; // TODO gestione errori
+
         T val = this.head.value;
         this.head = this.head.next;
         return val;
@@ -45,7 +76,8 @@ public class ListaConcatenata<T> implements CodaDoppia<T> {
 
     @Override
     public T popBack() {
-        if (this.head == null) return null;
+        if (this.head == null) return null; // TODO gestione errori
+
         Node tail = this.head;
         Node prev = null;
         while (tail.next != null) {
