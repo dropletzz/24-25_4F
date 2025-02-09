@@ -3,7 +3,7 @@ package com.scuola.strutturedati;
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList<Integer> l = new LinkedList<>();
+        ListaConcatenata<Integer> l = new ListaConcatenata<>();
 
         l.pushBack(7); // [ 7 ]
         l.pushBack(3); // [ 7, 3 ]

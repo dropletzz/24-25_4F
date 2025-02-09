@@ -1,6 +1,6 @@
 package com.scuola.strutturedati;
 
-public class LinkedList<T> implements Deque<T> {
+public class ListaConcatenata<T> implements CodaDoppia<T> {
 
     private class Node {
         T value = null;
