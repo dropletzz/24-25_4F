@@ -1,9 +1,10 @@
 package com.scuola.strutturedati;
 
-// La Coda (Queue) e' una coda FIFO (first in first out)
+// La CodaDoppia (Dequeue) permette di aggiungere/rimuovere
+// elementi sia in testa che in coda.
 public interface CodaDoppia<T> { 
-    void push(T v); // aggiunge un valore in testa
-    T pop(); // toglie l'elemento in testa e lo restituisce
-    void pushBack(T v); // aggiunge un valore in coda
+    void pushFront(T v); // aggiunge un elemento in testa
+    T popFront(); // toglie l'elemento in testa e lo restituisce
+    void pushBack(T v); // aggiunge un elemento in coda
     T popBack(); // toglie l'elemento in coda e lo restituisce
 }
