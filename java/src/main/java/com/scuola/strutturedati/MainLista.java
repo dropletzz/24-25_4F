@@ -1,6 +1,6 @@
 package com.scuola.strutturedati;
 
-public class Main {
+public class MainLista {
 
     public static void main(String[] args) {
         ListaConcatenata<String> saluti = new ListaConcatenata<>();
@@ -11,7 +11,8 @@ public class Main {
         for (int i=0; i<saluti.size(); i++)
             System.out.println(saluti.get(i));
 
-        /*
+        
+        ListaConcatenata<Integer> l = new ListaConcatenata<>();
         l.pushBack(7); // [ 7 ]
         l.pushBack(3); // [ 7, 3 ]
         l.pushBack(1); // [ 7, 3, 1 ]
@@ -21,6 +22,5 @@ public class Main {
         System.out.println(l.popBack()); // 1
         System.out.println(l.popBack()); // 3
         System.out.println(l.pop());     // 7
-         */
     }
 }
