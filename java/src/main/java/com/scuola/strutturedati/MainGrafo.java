@@ -1,10 +1,46 @@
 package com.scuola.strutturedati;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class MainGrafo {
     public static void main(String[] args) {
         Grafo<String> t = costruisciAlbero();
-        // 1) Stampa tutti i vertici di t con Depth-first
-        // 2) Stampa tutti i vertici di t con Breath-first
+
+        System.out.println("BREATH FIRST: \n");
+        visitaBreathFirst(t);
+
+        System.out.println("\n\n--------------\n\n");
+
+        System.out.println("DEPTH FIRST: \n");
+        visitaDepthFirst(t);
+    }
+
+    private static void visitaBreathFirst(Grafo<String> t) {
+        Queue<Grafo<String>.Vertice> daVisitare = new LinkedList<>();
+        daVisitare.add(t.getRadice());
+
+        while (!daVisitare.isEmpty()) {
+            Grafo<String>.Vertice v = daVisitare.remove();
+            System.out.println(v.getValore());
+            for (Grafo<String>.Vertice figlio : v.getCollegati()) {
+                daVisitare.add(figlio);
+            }
+        }
+    }
+
+    private static void visitaDepthFirst(Grafo<String> t) {
+        Stack<Grafo<String>.Vertice> daVisitare = new Stack<>();
+        daVisitare.push(t.getRadice());
+
+        while (!daVisitare.isEmpty()) {
+            Grafo<String>.Vertice v = daVisitare.pop();
+            System.out.println(v.getValore());
+            for (Grafo<String>.Vertice figlio : v.getCollegati()) {
+                daVisitare.push(figlio);
+            }
+        }
     }
 
     private static Grafo<String> costruisciAlbero() {
