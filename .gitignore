@@ -2,3 +2,4 @@
 .editorconfig
 target
 *.ser
+**/_*
