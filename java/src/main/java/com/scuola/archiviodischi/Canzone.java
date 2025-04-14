@@ -9,6 +9,14 @@ public class Canzone {
         this.genere = genere;
     }
 
+    public String getTitolo() {
+        return this.titolo;
+    }
+
+    public String getGenere() {
+        return this.genere;
+    }
+
     @Override
     public String toString() {
         return titolo;

@@ -12,13 +12,18 @@ public class Disco {
         this.autore = autore;
     }
 
+    public Autore getAutore() {
+        return this.autore;
+    }
+
     public String toString() {
         String s = "Titolo: " + titolo + "\n";
         s = s + "Autore: " + autore.toString() + "\n";
 
+        int i = 1;
         for (Canzone canzone : canzoni) {
-            // aggiungi numeri delle canzoni
-            s = s + canzone.toString() + "\n";
+            s = s + i + " " + canzone.toString() + "\n";
+            i++;
         }
         return s;
     }
