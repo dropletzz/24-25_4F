@@ -4,13 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import com.scuola.util.Read;;
 
 
 public class Biblioteca {
-
-    private static BufferedReader in = new BufferedReader(
-        new InputStreamReader(System.in)
-    );
 
     private ArrayList<Libro> libri;
     private ArrayList<Utente> utenti;
@@ -21,18 +18,14 @@ public class Biblioteca {
     }
 
     public void inserisciLibro() throws IOException {
-        System.out.print("Inserisci titolo: ");
-        String titolo = in.readLine();
-        System.out.print("Inserisci autore: ");
-        String autore = in.readLine();
-        System.out.print("Inserisci numero pagine: ");
-        int nPagine = Integer.parseInt(in.readLine());
+        String titolo = Read.string("Inserisci titolo: ");
+        String autore = Read.string("Inserisci autore: ");
+        int nPagine = Read.integer("Inserisci numero pagine: ");
 
-        Libro l = new Libro(titolo, autore, nPagine);
-        this.libri.add(l);
+        this.libri.add(new Libro(titolo, autore, nPagine));
     }
 
-    public void elimina(int i) {
+    public void eliminaLibro(int i) {
         this.libri.remove(i);
     }
 
@@ -56,7 +49,7 @@ public class Biblioteca {
                     +"2 => INSERISCI LIBRO\n"
                     +"3 => RIMUOVI LIBRO"
             );
-            int scelta = Integer.parseInt(in.readLine());
+            int scelta = Read.integer("");
             switch (scelta) {
                 case 0:
                     fine = true;
@@ -69,9 +62,8 @@ public class Biblioteca {
                     break;
                 case 3:
                     System.out.println(b);
-                    System.out.println("Indice del libro da rimuovere: ");
-                    int i = Integer.parseInt(in.readLine());
-                    b.elimina(i);
+                    int i = Read.integer("Indice del libro da rimuovere: ");
+                    b.eliminaLibro(i);
                     break;
                 default:
                     throw new AssertionError();
