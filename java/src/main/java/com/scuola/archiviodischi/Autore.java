@@ -18,18 +18,16 @@ public class Autore {
         return nome;
     }
 
-    // i metodi "equals" e "hashCode" vengono usati da HashSet (si veda ArchivioDisci)
-    // per decidere se due elementi vanno considerati uguali oppure no
+    // i metodi "equals" e "hashCode" vengono usati da HashSet (si veda ArchivioDischi)
+    // per decidere se due elementi sono da considerarsi uguali oppure no
     @Override
     public boolean equals(Object o) {
-        if (o == null) return false;
-        if (o instanceof Autore) {
-            Autore a = (Autore) o;
-            // si usa toLowerCase per fare un confronto case-insensitive
-            // ad esempio: "Tony Boy" e "Tony boy" verranno considerati uguali
-            return a.nome.toLowerCase().equals(this.nome.toLowerCase());
-        }
-        return false;
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        Autore a = (Autore) o;
+        // si usa toLowerCase per fare un confronto case-insensitive
+        // ad esempio: "Tony Boy" e "tony boy" verranno considerati uguali
+        return Objects.equals(this.nome.toLowerCase(), a.nome.toLowerCase());
     }
 
     @Override

@@ -22,7 +22,7 @@ public class Disco {
 
         int i = 1;
         for (Canzone canzone : canzoni) {
-            s = s + i + " " + canzone.toString() + "\n";
+            s = s + i + ") " + canzone.toString() + "\n";
             i++;
         }
         return s;

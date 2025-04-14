@@ -22,12 +22,6 @@ public class ArchivioDischi {
         return this.dischi.size();
     }
 
-    public void stampaAutori() {
-        for (Autore a : this.autori) {
-            System.out.println(a.getNome());
-        }
-    }
-
     public String toString() {
         String s = "";
 
