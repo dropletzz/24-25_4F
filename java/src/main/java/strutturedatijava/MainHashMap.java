@@ -1,4 +1,4 @@
-package com.scuola.strutturedati;
+package strutturedatijava;
 import java.util.HashMap;
 
 public class MainHashMap {
