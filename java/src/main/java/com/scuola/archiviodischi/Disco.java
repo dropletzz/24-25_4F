@@ -1,5 +1,6 @@
 package com.scuola.archiviodischi;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Disco {
     private String titolo;
@@ -14,6 +15,10 @@ public class Disco {
 
     public Autore getAutore() {
         return this.autore;
+    }
+    
+    public List<Canzone> getCanzoni() {
+        return this.canzoni;
     }
 
     public String toString() {

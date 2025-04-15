@@ -10,5 +10,9 @@ public class MainHashMap {
         numeriPreferiti.put("Genny", 99);
 
         System.out.println(numeriPreferiti.get("Mario"));
+        
+        numeriPreferiti.remove("Mario");
+        
+        System.out.println(numeriPreferiti.get("Mario"));
     }
 }

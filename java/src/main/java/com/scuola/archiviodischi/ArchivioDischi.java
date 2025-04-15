@@ -1,11 +1,13 @@
 package com.scuola.archiviodischi;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ArchivioDischi {
-    private ArrayList<Disco> dischi;
+    private List<Disco> dischi;
     private Set<Autore> autori;
 
     public ArchivioDischi() {
@@ -20,6 +22,33 @@ public class ArchivioDischi {
 
     public int lunghezza() {
         return this.dischi.size();
+    }
+    
+    public Set<String> getGeneri() {
+        Set<String> generi = new HashSet<>();
+        
+        for (Disco d : this.dischi) {
+            for (Canzone c : d.getCanzoni()){
+                generi.add(c.getGenere().toLowerCase());
+            }
+        }
+        
+        return generi;
+    }
+    
+    public HashMap<Autore, Integer> conteggioAlbumAutori() {
+        HashMap<Autore, Integer> conteggi = new HashMap<>();
+        for (Disco d : this.dischi) {
+            Autore autore = d.getAutore();
+            if (conteggi.containsKey(autore)) {
+                Integer c = conteggi.get(autore);
+                conteggi.put(autore, c + 1);
+            }
+            else {
+                conteggi.put(autore, 1);
+            }
+        }
+        return conteggi;
     }
 
     public String toString() {

@@ -1,10 +1,28 @@
 package com.scuola.archiviodischi;
 
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
 public class Main {
 
     public static void main(String[] args) {
-        ArchivioDischi a = DatiArchivioDischi.getArchivio();
+        ArchivioDischi ar = DatiArchivioDischi.getArchivio();
 
         // TODO menu
+
+        HashMap<Autore, Integer> map = ar.conteggioAlbumAutori();
+        
+        /*
+        for (Autore a : map.keySet()) {
+            Integer numeroAlbum = map.get(a);
+            System.out.println(a.toString() + " " + numeroAlbum);
+        }
+        */
+    
+        
+        for (Entry<Autore, Integer> e : map.entrySet()) {
+            System.out.println(e);
+        }
     }
 }
