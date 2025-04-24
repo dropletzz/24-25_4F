@@ -5,12 +5,6 @@ import java.util.List;
 
 public class ReadTest {
 
-    private static final List<String> options = Arrays.asList(new String[]{
-        "ESCI",
-        "FAI QUESTO",
-        "FAI QUELLO"
-    });
-
     @SuppressWarnings("unused")
     public static void main(String[] args) {
         // string
@@ -22,7 +16,7 @@ public class ReadTest {
         // integerMin
         int y = Read.integerMin("dammi un numero intero positivo: ", 0);
 
-        // integerBetween
+        // integerMinMax
         int z = Read.integerMinMax("la uno, la due o la tre? ", 1, 3);
 
         // yesOrNo
@@ -30,6 +24,12 @@ public class ReadTest {
         while (Read.yesOrNo(msg, "ok", "basta")) msg += "?";
 
         // select
+        List<String> options = Arrays.asList(new String[]{
+            "ESCI",
+            "FAI QUESTO",
+            "FAI QUELLO"
+        });
+
         boolean quit = false;
         while (!quit) {
             int menuOption = Read.select("scegli un'opzione: ", options);
@@ -47,7 +47,7 @@ public class ReadTest {
             }
         }
         
-        float num = Read.numberMin("Inserisci un numero non intero minore di 1.5 : \n" , (float) 1.5);
+        float num = Read.numberMin("Inserisci un numero intero non minore di 1.5 : \n" , (float) 1.5);
         
     }
 }
