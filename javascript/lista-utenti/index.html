@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Utenti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Lista Utenti Registrati</h1>
+
+    <div class="filters-container">
+        <div class="filter-group">
+            <label for="minAge">Età Minima:</label>
+            <input type="number" id="minAge" min="0">
+        </div>
+        <div class="filter-group">
+            <label for="maxAge">Età Massima:</label>
+            <input type="number" id="maxAge" min="0">
+        </div>
+        <div class="filter-group">
+            <label for="statusFilter">Stato:</label>
+            <select id="statusFilter">
+                <option value="all">Tutti</option>
+                <option value="active">Attivi</option>
+                <option value="inactive">Inattivi</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="searchBar">Cerca per Nome/Cognome:</label>
+            <input type="text" id="searchBar" placeholder="Es. Alice Smith">
+        </div>
+        <button id="apply-filters-btn">Applica Filtri</button>
+        <button id="reset-filters-btn">Reset Filtri</button>
+    </div>
+
+    <table id="users-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Eta'</th>
+                <th>Stato</th>
+            </tr>
+        </thead>
+
+        <!-- dati di esempio, eliminarli una volta riempita la tabella da JavaScript -->
+        <tr>
+            <td>23</td>
+            <td>Gianni</td>
+            <td>Morandi</td>
+            <td>55</td>
+            <td class="active-status">Attivo</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>Moria</td>
+            <td>Orfei</td>
+            <td>64</td>
+            <td class="inactive-status">Inattivo</td>
+        </tr>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
